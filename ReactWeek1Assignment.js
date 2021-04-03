@@ -7,6 +7,8 @@ class Student {
     }
 }
 
+
+
 class Bootcamp {
 
     constructor(name, level, students = []) {
@@ -15,40 +17,76 @@ class Bootcamp {
         this.students = students;
     }
 
-    registerStudent(newStu) {
+    registerStudent(studentToRegister) {
 
-        const alreadyReg = this.students.filter(item => newStu.email === item.email)
+        const alreadyReg = this.students.filter(item => studentToRegister.email === item.email)
         if (alreadyReg.length === 0) {
-            this.students.push(newStu);
-            console.log(`Registering ${newStu.email} to the bootcamp ${this.name}.`);
+            this.students.push(studentToRegister);
+            console.log(`Registering ${studentToRegister.email} to the bootcamp ${this.name}.`);
         } else {
-            console.log(`A student has already registered using the email address ${newStu.email}.`);
+            console.log(`A student has already registered using the email address ${studentToRegister.email}.`);
         }
         return this.students;
+/*
+        Non-Working Code: 
+
+        if (this.students.includes(studentToRegister.email)) {
+            console.log(`A student with ${this.email} has already registered.`);
+        } else {
+            this.students.push(studentToRegister);
+            console.log(`Registering ${studentToRegister.email} to the bootcamp ${this.name}.`)
+        }
+
+        return this.students;
+        */
     }
 
 }
+const student1 = new Student("Heather", "heath@someemail.com", "Salt Lake");
+const student2 = new Student("Nash", "Nash@gmail.com", "Seattle");
+const student3 = new Student("Nate", "Nate@gmail.com", "San Diego");
+
+const boot1 = new Bootcamp("Nucamp", "beginner");
+
+boot1.registerStudent(student1);
+boot1.registerStudent(student2);
+boot1.registerStudent(student3);
+boot1.registerStudent(student1);
+
+const rebecca = new Student("Rebecca", "rebsjudicate@gmail.com", "New Path Interdisciplinary Art School for Bad Kids");
+const earl = new Student("Earl", "myEarlPearl@gmail.com", "Self-Taught Genius Academy");
+const heather = new Student("Heather", "mcdancerson@gmail.com", "Nucamp");
+const Earl = new Student("Earl", "myEarl@gmail.com", "Self-Taught Genius Academy");
+const Heather = new Student("Heather", "mcdancerson@gmail.com", "Nucamp");
+
+boot1.registerStudent(heather);
+boot1.registerStudent(rebecca);
+boot1.registerStudent(Earl);
+boot1.registerStudent(earl);
+boot1.registerStudent(Heather);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
-
-   if (this.students.length === 0) {
-            this.students.push(newStu);
-            console.log(`Registering ${newStu.email} to the bootcamp ${this.name}.`)
-        } else {
-        for (let i = 0; i < this.students.length; i++) {
-            if (this.students[i].email === newStu.email) {
-                console.log(`A student has already registered using the email address ${newStu.email}.`)
-            } else {
-                this.students.push(newStu);
-                console.log(`Registering ${newStu.email} to the bootcamp ${this.name}.`)
-            }
-        }
-    }
-
-
-
-const boot1 = new Bootcamp("Nucamp Full Stack", "Intermediate");
 
 const rebecca = new Student("Rebecca", "rebsjudicate@gmail.com", "New Path Interdisciplinary Art School for Bad Kids");
 

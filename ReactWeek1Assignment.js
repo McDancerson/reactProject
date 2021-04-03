@@ -7,8 +7,6 @@ class Student {
     }
 }
 
-
-
 class Bootcamp {
 
     constructor(name, level, students = []) {
@@ -36,7 +34,6 @@ class Bootcamp {
             this.students.push(studentToRegister);
             console.log(`Registering ${studentToRegister.email} to the bootcamp ${this.name}.`)
         }
-
         return this.students;
         */
     }
